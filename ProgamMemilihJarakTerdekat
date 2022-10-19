@@ -1,0 +1,120 @@
+import java.util.Scanner;
+
+public class laprak {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        //Memasukkan koordinat pengojek
+
+        System.out.print("Nama Pengojek terdekat 1: ");
+        String nama1 = input.nextLine();
+        System.out.print("Koordinat: ");
+        int x1 = input.nextInt();
+        int y1 = input.nextInt();
+
+        input.nextLine();
+
+        System.out.print("Nama Pengojek terdekat 2: ");
+        String nama2 = input.nextLine();
+        System.out.print("Koordinat: ");
+        int x2 = input.nextInt();
+        int y2 = input.nextInt();
+
+        input.nextLine();
+
+        System.out.print("Nama Pengojek terdekat 3: ");
+        String nama3 = input.nextLine();
+        System.out.print("Koordinat: ");
+        int x3 = input.nextInt();
+        int y3 = input.nextInt();
+
+        input.nextLine();
+
+        //Memasukkan koordinat penumpang
+
+        System.out.print("Nama Penumpang: ");
+        String penumpang = input.nextLine();
+        System.out.print("Koordinat: ");
+        int x4 = input.nextInt();
+        int y4 = input.nextInt();
+
+        //perhitungan jarak masing-masing driver terhadap penumpang
+
+        double jarakx1 = (int) x4-x1;
+        double jaraky1 = (int) y4-y1;
+        double hasiljarak1 = Math.sqrt(Math.pow(jarakx1,2)+Math.pow(jaraky1,2));
+
+        double jarakx2 = (int) x4-x2;
+        double jaraky2 = (int) y4-y2;
+        double hasiljarak2 = Math.sqrt(Math.pow(jarakx2,2)+Math.pow(jaraky2,2));
+
+        double jarakx3 = (int) x4-x3;
+        double jaraky3 = (int) y4-y3;
+        double hasiljarak3 = Math.sqrt(Math.pow(jarakx3,2)+Math.pow(jaraky3,2));
+
+        //Memasukkan koordinat tujuan
+
+        input.nextLine();
+
+        System.out.print("Nama Tujuan: ");
+        String tujuan = input.nextLine();
+        System.out.print("Koordinat: ");
+        int x5 = input.nextInt();
+        int y5 = input.nextInt();
+
+        //Jarak penumpang dengan tujuan
+
+        double jarakx4 = (int) x5-x4;
+        double jaraky4 = (int) y5-y4;
+        double hasiljarak4 = Math.sqrt(Math.pow(jarakx4,2)+Math.pow(jaraky4,2));
+
+        //seleksi
+        if (hasiljarak1 < hasiljarak2 && hasiljarak1 < hasiljarak3 ){
+            System.out.println("\nSaudara/i "+penumpang+" akan dijemput oleh "+ nama1);
+            System.out.printf("Dengan tujuan %s (%.2fkm)",tujuan,hasiljarak4);
+            double biayajemput = hasiljarak1 * 1500;
+            double biayaantar = hasiljarak4 * 2000;
+            double totalbiaya = biayajemput + biayaantar;
+            double biaya = Math.floor(totalbiaya);
+            System.out.printf("\nBiaya yang harus dikeluarkan adalah Rp%.0f", biaya);
+
+        }else if (hasiljarak2 < hasiljarak1 && hasiljarak2 < hasiljarak3 ) {
+            System.out.println("\nSaudara/i "+penumpang+" akan dijemput oleh " + nama2);
+            System.out.printf("Dengan tujuan %s (%.2fkm)",tujuan,hasiljarak4);
+            double biayajemput = hasiljarak2 * 1500;
+            double biayaantar = hasiljarak4 * 2000;
+            double totalbiaya = biayajemput + biayaantar;
+            double biaya = Math.floor(totalbiaya);
+            System.out.printf("\nBiaya yang harus dikeluarkan adalah Rp%.0f", biaya);
+
+        }else if (hasiljarak3 < hasiljarak1 && hasiljarak3 < hasiljarak2 ) {
+            System.out.println("\nSaudara/i "+penumpang+" akan dijemput oleh " + nama3);
+            System.out.printf("Dengan tujuan %s (%.2fkm)",tujuan,hasiljarak4);
+            double biayajemput = hasiljarak3 * 1500;
+            double biayaantar = hasiljarak4 * 2000;
+            double totalbiaya = biayajemput + biayaantar;
+            double biaya = Math.floor(totalbiaya);
+            System.out.printf("\nBiaya yang harus dikeluarkan adalah Rp%.0f", biaya);
+
+        }else if (hasiljarak1 == hasiljarak2 ) {
+            System.out.println("\nSaudara/i "+penumpang+" akan dijemput oleh "+ nama1);
+            System.out.printf("Dengan tujuan %s (%.2fkm)",tujuan,hasiljarak4);
+            double biayajemput = hasiljarak1 * 1500;
+            double biayaantar = hasiljarak4 * 2000;
+            double totalbiaya = biayajemput + biayaantar;
+            double biaya = Math.floor(totalbiaya);
+            System.out.printf("\nBiaya yang harus dikeluarkan adalah Rp%.0f", biaya);
+
+        }else if (hasiljarak2 == hasiljarak3) {
+            System.out.println("\nSaudara/i "+penumpang+" akan dijemput oleh "+ nama2);
+            System.out.printf("Dengan tujuan %s (%.2fkm)",tujuan,hasiljarak4);
+            double biayajemput = hasiljarak2 * 1500;
+            double biayaantar = hasiljarak4 * 2000;
+            double totalbiaya = biayajemput + biayaantar;
+            double biaya = Math.floor(totalbiaya);
+            System.out.printf("\nBiaya yang harus dikeluarkan adalah Rp%.0f", biaya);
+
+        }
+    }
+}
