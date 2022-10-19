@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class tugasJava {
+    public static void main(String[] args) {
+        //Memasukkan koordinat pengojek
+
+        Scanner input= new Scanner(System.in);
+
+        System.out.print("Masukkan titik koordinat pengojek : ");
+        String cord1 = input.nextLine();
+        String kordinat1 = cord1.substring(1,2);
+        String kordinat2 = cord1.substring(3,4);
+        int x1 = Integer.parseInt(kordinat1);
+        int y1 = Integer.parseInt(kordinat2);
+
+        //Memasukkan koordinat penumpang
+
+        System.out.print("Masukkan titik koordinat penumpang : ");
+        String cord2 = input.nextLine();
+        String kordinat3 = cord2.substring(1,2);
+        String kordinat4 = cord2.substring(3,4);
+        int x2 = Integer.parseInt(kordinat3);
+        int y2 = Integer.parseInt(kordinat4);
+
+        double x3 = (int) x2-x1;
+        double y3 = (int) y2-y1;
+        double jarak = Math.sqrt(Math.pow(x3,2)+Math.pow(y3,2));
+
+        //kondisi pemilihan pembulatan
+
+        if (x1 + x2 + y1 + y2 % 2 == 0) {
+            Math.ceil(jarak);
+            int biaya = (int) jarak * 2000;
+            int biayaAntar = biaya * 75 / 100;
+            int totalBiaya = biaya + biayaAntar;
+            System.out.printf("Total biaya untuk " + jarak + "km adalah Rp %,d", totalBiaya);
+        } else {
+            Math.floor(jarak);
+            int biaya = (int) jarak * 2000;
+            int biayaAntar = biaya * 75 / 100;
+            int totalBiaya = biaya + biayaAntar;
+            System.out.printf("Total biaya untuk " + jarak + "km adalah Rp %,d", totalBiaya);
+        }
+
+    }
+}
+
+
